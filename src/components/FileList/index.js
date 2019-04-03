@@ -13,7 +13,13 @@ const FileList = ({ files, onDelete }) => (
                     <div>
                         <strong>{uploadedFile.name}</strong>
                         <span>
-                        {uploadedFile.readableSize}{" "}
+                        {/* Testando condições */}
+                        { parseFloat(uploadedFile.readableSize) > 50.000 && alert("Máximo 50mb") + window.location.reload()}
+                        { uploadedFile.readableSize.includes("GB") && alert("Máximo 50mb") + window.location.reload()}
+                        {/* Fim Testando condições */}
+                        
+                        { uploadedFile.readableSize }
+                        
                         {!! uploadedFile.url && (
                             <button onClick={() => onDelete(uploadedFile.id)}>Excluir</button>
                         )}
